@@ -14,30 +14,37 @@ choosing/creation.
 This should help efficiency in loops. SetTest()
 should be called from outside and before the
 loop and then
+```
 	if(test){
 		test();
 	}
+```
 can be placed in the loop where appropriate.
 
 
 
-Tested in x86_64-pc-cygwin with gcc 5.3.0
+Tested in `x86_64-pc-cygwin` with `gcc 5.3.0`
 
-To run: use included build.sh or do it 
+##To Run:
+use included build.sh or do it 
 yourself as shown below
 
-#complie the objects
+####Compile the objects
+```
 gcc -c -o fptr.o fptr.c
 gcc -c -o test.o test.c
 gcc -c -o test2.o test2.c
+```
 
-#link into executables
+####Link into executables
+```
 gcc -o fptr.exe fptr.o 
 gcc -o fptr-test.exe fptr.o test.o
 gcc -o fptr-test2.exe fptr.o test2.o
+```
 
-
-Expected output for each executable:
+####Expected output
+```
 $ ./fptr.exe
 weak SetTest
 0x0
@@ -53,3 +60,4 @@ external SetTest in test2.c
 0x401160
 external MyTest2 in test2.c
 external MyTest2 in test2.c
+```
